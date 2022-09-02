@@ -104,7 +104,7 @@ export default function ProductSreen({ navigation }) {
 
             <View style={Styles.container}>
                 <View style={{flexDirection:'row'}}>
-                    <TouchableOpacity  onPress={() => this.props.navigation.goBack(HomeSreen)}>
+                    <TouchableOpacity  onPress={() => navigation.goBack()}>
                     < Ionicons name='ios-chevron-back' style={Styles.backIcon} />
                     </TouchableOpacity>
                     <Text style={{fontFamily:'Montserrat-Medium', fontSize:20,color:'black',marginLeft:5}}>Dress</Text>
@@ -125,7 +125,8 @@ export default function ProductSreen({ navigation }) {
 
 const Styles = StyleSheet.create({
     container: {
-        margin: 16
+        // marginLeft:16,
+        // marginRight:16
     },
     backIcon:{
       fontSize:30,

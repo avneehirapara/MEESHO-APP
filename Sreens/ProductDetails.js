@@ -3,9 +3,10 @@ import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { colors } from '../assets/colors/colors'
 
-export default function ProductDetails() {
+export default function ProductDetails({ navigation }) {
     return (
         <ScrollView>
             {/* -----------------------------------SatusBar ----------------------------------------- */}
@@ -13,6 +14,14 @@ export default function ProductDetails() {
 
             <View style={styles.container}>
 
+                  {/* ------------------------back arrow------------------ */}
+
+                  <View style={{flexDirection:'row'}}>
+                    <TouchableOpacity  onPress={() => navigation.goBack()}>
+                    < Ionicons name='ios-chevron-back' style={styles.backIcon} />
+                    </TouchableOpacity>
+                    {/* <Text style={{fontFamily:'Montserrat-Medium', fontSize:20,color:'black',marginLeft:5}}>Dress</Text> */}
+                    </View>
                 {/* --------------------IMAGED------------------------------ */}
                 <View style={styles.BgImg}>
                     <Image source={require('../assets/images/d.jpg')} />
@@ -72,12 +81,24 @@ export default function ProductDetails() {
                     <Text style={styles.lorem}>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </Text>
 
                 </View>
-                <TouchableOpacity>
-                   <View style={{flexDirection:'row'}}>
-                   <AntDesign  name='shoppingcart'/>
-                    <Text>Add to Cart</Text>
-                   </View>
-                </TouchableOpacity>
+                <View style={{ flexDirection: 'row' }}>
+                    <View >
+                        <TouchableOpacity style={styles.cart}>
+                            <View style={{ flexDirection: 'row' }}>
+                                <AntDesign name='shoppingcart' style={styles.carIcon} />
+                                <Text style={styles.carT}>Add to Cart</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                    <View>
+                        <TouchableOpacity style={[styles.cart, { backgroundColor: colors.pink, borderColor:colors.pink}]}>
+                            <View style={{ flexDirection: 'row' }}>
+                                <AntDesign name='doubleright' style={[styles.carIcon ,{ color: 'white' }]} />
+                                <Text style={[styles.carT, { color: 'white' }]}>Buy Now</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </View>
             </View>
         </ScrollView>
     )
@@ -85,8 +106,15 @@ export default function ProductDetails() {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 16
+        // marginLeft:16,
+        // marginRight:16
     },
+    backIcon:{
+        fontSize:30,
+        color:'black',
+        marginLeft:5,
+        marginBottom:5
+      },
     BgImg: {
         justifyContent: 'center',
         alignItems: 'center',
@@ -100,7 +128,7 @@ const styles = StyleSheet.create({
         width: 25,
         borderRadius: 25,
         position: 'absolute',
-        top: 10,
+        top: 50,
         right: 20,
         backgroundColor: 'white',
     },
@@ -183,7 +211,7 @@ const styles = StyleSheet.create({
         height: 25,
         width: 25,
         borderRadius: 50,
-        backgroundColor: '#3A3A3A',
+        backgroundColor:colors.blue,
         marginLeft: 15,
         marginTop: 10,
     },
@@ -191,7 +219,7 @@ const styles = StyleSheet.create({
         height: 25,
         width: 25,
         borderRadius: 50,
-        backgroundColor: 'red',
+        backgroundColor:colors.softgreen,
         marginLeft: 15,
         marginTop: 10,
     },
@@ -199,7 +227,7 @@ const styles = StyleSheet.create({
         height: 25,
         width: 25,
         borderRadius: 50,
-        backgroundColor: '#0000FF',
+        backgroundColor: colors.softpink,
         marginLeft: 15,
         marginTop: 10,
     },
@@ -207,66 +235,34 @@ const styles = StyleSheet.create({
         height: 25,
         width: 25,
         borderRadius: 50,
-        backgroundColor: '#00FF47',
+        backgroundColor: colors.softblue,
         marginLeft: 15,
         marginTop: 10,
     },
-    ShortImg: {
-        height: 75,
-        width: 75,
-        marginTop: 20,
-        marginLeft: 20,
-    },
-    inputBox: {
-        marginTop: 20,
 
-
-    },
-    input: {
-        borderColor: 'gray',
-        borderWidth: 1,
-        marginLeft: 15,
-        marginRight: 60,
-        marginTop: 20,
-        fontFamily: 'Montserrat-Regular',
-        fontSize: 20,
-        color: 'gray',
-        padding: 5,
-    },
     cart: {
-        backgroundColor: colors.secondary,
-        marginTop: 34,
-        marginLeft: 15,
-        marginRight: 15,
-        height: 40,
-        width: 163,
-        borderRadius: 5
+        marginTop: 20,
+        borderWidth: 1,
+        borderRadius:5,
+        padding: 10,
+        width: 150,
+        marginLeft: 30,
+       
 
     },
-    buy: {
-        backgroundColor: 'red',
-        marginTop: 34,
-        marginLeft: 15,
-        marginRight: 15,
-        height: 40,
-        width: 163,
-        backgroundColor: colors.primary,
-        borderRadius: 5
-
+    carIcon: {
+        marginTop: 2,
+        marginRight: 5,
+        fontSize: 20,
+        color: 'black',
+        
     },
-    CartText: {
-        fontFamily: 'Montserrat-SemiBold',
-        fontSize: 19,
+    carT: {
+        fontSize: 17,
         textAlign: 'center',
-        marginTop: 10,
-    },
-    BuyText: {
-        fontFamily: 'Montserrat-SemiBold',
-        fontSize: 19,
-        textAlign: 'center',
-        marginTop: 10,
-        color: colors.white
-    },
+        color: 'black',
+        fontFamily: 'Montserrat-Regular',
 
+    }
 
 })

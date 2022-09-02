@@ -55,8 +55,8 @@ export default function HomeSreen({ navigation }) {
     console.log("item");
     return (
 
-      <TouchableOpacity 
-      onPress={()=>navigation.navigate('ProductSreen')}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('ProductSreen')}>
         <View style={Styles.card}>
           <Image source={item.image} style={Styles.TopImg} />
           <Text style={Styles.Imgtext}>{item.product} </Text>
@@ -88,7 +88,7 @@ export default function HomeSreen({ navigation }) {
     },
     {
       id: 4,
-     
+
       image: require('../assets/images/newelectick.jpeg'),
       product: 'electronics',
     },
@@ -109,7 +109,7 @@ export default function HomeSreen({ navigation }) {
     console.log("item");
     return (
 
-      <TouchableOpacity  onPress={()=>navigation.navigate('ProductSreen')}>
+      <TouchableOpacity onPress={() => navigation.navigate('ProductSreen')}>
         <View style={Styles.card}>
           <Image source={item.image} style={Styles.TopSellImg} />
           <Text style={Styles.TopSellText}>{item.product} </Text>
@@ -165,7 +165,7 @@ export default function HomeSreen({ navigation }) {
     console.log("item");
     return (
       <View>
-        <TouchableOpacity style={Styles.Pricecard}  onPress={()=>navigation.navigate('ProductSreen')}>
+        <TouchableOpacity style={Styles.Pricecard} onPress={() => navigation.navigate('ProductSreen')}>
           <Text style={Styles.PriceText}>{item.product} </Text>
         </TouchableOpacity>
         <View>
@@ -185,26 +185,26 @@ export default function HomeSreen({ navigation }) {
 
         {/* -----------------------------------Top Icons ----------------------------------------- */}
         <View>
-        <View style={{position:"relative"}}>
-          <Feather name='menu'  onPress={() => navigation.toggleDrawer()} style={Styles.menu}/>
-        </View> 
-        <View style={Styles.TopIcons}>
-          <TouchableOpacity>
-            <MaterialIcons name='favorite-outline' size={25} color='black' style={{ marginRight: 15 }} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Ionicons name='notifications-outline' size={25} color='black' style={{ marginRight: 15 }} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <AntDesign name='shoppingcart' size={25} color='black' style={{ marginRight: 15 }} />
-          </TouchableOpacity>
-        </View>
+          <View style={{ position: "relative" }}>
+            <Feather name='menu' onPress={() => navigation.toggleDrawer()} style={Styles.menu} />
+          </View>
+          <View style={Styles.TopIcons}>
+            <TouchableOpacity>
+              <MaterialIcons name='favorite-outline' size={25} color='black' style={{ marginRight: 15 }} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Ionicons name='notifications-outline' size={25} color='black' style={{ marginRight: 15 }} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <AntDesign name='shoppingcart' size={25} color='black' style={{ marginRight: 15 }} />
+            </TouchableOpacity>
+          </View>
         </View>
         {/* -----------------------------------Search Icons ----------------------------------------- */}
 
 
-      
-         <View style={Styles.SearchBox}>
+
+        <View style={Styles.SearchBox}>
           <TouchableOpacity>
             <MaterialIcons name='keyboard-voice' style={Styles.Voice} />
           </TouchableOpacity>
@@ -226,51 +226,51 @@ export default function HomeSreen({ navigation }) {
         {/* --------------------------- Middel Icon---------------------------------- */}
 
         <View style={Styles.middelicon}>
-<View style={Styles.box}>
-<View style={Styles.iconBox}>
-            <MaterialIcons name='money' size={25} style={Styles.middeliconss} />
-            <Text style={Styles.middelText}>Case on </Text>
-            <Text style={Styles.middelText}>Delevary</Text>
-          </View>
-          <View style={Styles.iconBox}>
-            <MaterialIcons name='directions-bike' size={25} />
-            <Text style={Styles.middelText}>Free </Text>
-            <Text style={Styles.middelText}>Delevary</Text>
-          </View>
-          <View style={Styles.iconBox}>
-            <Entypo name='price-tag' size={25} />
-            <Text style={Styles.middelText}>Lowest </Text>
-            <Text style={Styles.middelText}>Price</Text>
-          </View>
+          <View style={Styles.box}>
+            <View style={[Styles.iconBox,{paddingLeft:20}]}>
+              <MaterialIcons name='money' size={25} style={Styles.middeliconss} />
+              <Text style={Styles.middelText}>Case on </Text>
+              <Text style={Styles.middelText}>Delevary</Text>
+            </View>
+            <View style={Styles.iconBox}>
+              <MaterialIcons name='directions-bike' size={25} />
+              <Text style={Styles.middelText}>Free </Text>
+              <Text style={Styles.middelText}>Delevary</Text>
+            </View>
+            <View style={[Styles.iconBox,{paddingRight:20}]}>
+              <Entypo name='price-tag' size={25} />
+              <Text style={Styles.middelText}>Lowest </Text>
+              <Text style={Styles.middelText}>Price</Text>
+            </View>
 
-</View>
+          </View>
         </View>
         {/* ------------------flatlist 2---------------------------------- */}
-        <View style={{backgroundColor:'#FFFFFF',marginTop:15}}>
-        <Text style={{ fontFamily: 'Montserrat-Bold', fontSize: 20, marginTop: 20, marginLeft: 25 }}>Top Selling</Text>
-        <View>
-          <FlatList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={DATA1}
-            renderItem={TopSelling}
-            keyExtractor={item => item.id}
-          />
-        </View>
+        <View style={{ backgroundColor: '#FFFFFF', marginTop: 15 }}>
+          <Text style={{ fontFamily: 'Montserrat-Bold', fontSize: 20, marginTop: 20, marginLeft: 25 }}>Top Selling</Text>
+          <View>
+            <FlatList
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              data={DATA1}
+              renderItem={TopSelling}
+              keyExtractor={item => item.id}
+            />
+          </View>
         </View>
         {/* ------------------flatlist 3---------------------------------- */}
-       <View style={{backgroundColor:'#FFFFFF',marginTop:15}}>
-       <Text style={{ fontFamily: 'Montserrat-Bold', fontSize: 20, marginTop: 20, marginLeft: 25 }}>Price Store</Text>
-        <View>
-          <FlatList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={DATA3}
-            renderItem={PriceDATA}
-            keyExtractor={item => item.id}
-          />
+        <View style={{ backgroundColor: '#FFFFFF', marginTop: 15 }}>
+          <Text style={{ fontFamily: 'Montserrat-Bold', fontSize: 20, marginTop: 20, marginLeft: 25 }}>Price Store</Text>
+          <View>
+            <FlatList
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              data={DATA3}
+              renderItem={PriceDATA}
+              keyExtractor={item => item.id}
+            />
+          </View>
         </View>
-       </View>
       </View>
     </ScrollView>
   )
@@ -278,22 +278,20 @@ export default function HomeSreen({ navigation }) {
 
 
 const Styles = StyleSheet.create({
-  container :{
-      margin:16
+  container: {
+    marginLeft:16,
+    marginRight:16
   },
-  menu:{
-    position:"absolute",
-       fontSize:20,
-       Color:'black',
-      //  bottom:300,
-      top:7
- 
-       
+  menu: {
+    position: "absolute",
+    fontSize: 20,
+    Color: 'black',
+    top: 7
   },
   TopIcons: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    marginTop: 5,
+    // marginTop: 5,
   },
   SearchBox: {
     flexDirection: 'row',
@@ -328,7 +326,7 @@ const Styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Montserrat-Bold',
     marginLeft: 30,
-    marginTop:15,
+    marginTop: 15,
   },
   TopSellImg: {
     height: 140,
@@ -336,32 +334,30 @@ const Styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 20,
     borderRadius: 20,
-    borderColor: colors.softpink,
-    borderWidth: 3,
     // resizeMode: 'stretch',
   },
   TopSellText: {
     textAlign: 'center',
     fontFamily: 'Montserrat-Bold',
     marginLeft: 15,
-    marginTop:15,
-    marginBottom:20
+    marginTop: 15,
+    marginBottom: 20
 
   },
   middelicon: {
-   
+
     backgroundColor: colors.lightblue,
     height: 80,
     marginTop: 20,
   },
-  box:{
+  box: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems:'center',
+    alignItems: 'center',
   },
   iconBox: {
     alignSelf: 'center',
-    padding:10
+    padding: 10
   },
   middeliconss: {
     alignSelf: 'center'
@@ -391,9 +387,9 @@ const Styles = StyleSheet.create({
     alignSelf: 'center',
     fontFamily: 'Montserrat-Bold',
     fontSize: 14,
-    marginTop:15,
-    marginLeft:20,
-    marginBottom:20
+    marginTop: 15,
+    marginLeft: 20,
+    marginBottom: 20
 
   },
 })

@@ -23,11 +23,12 @@ export const BottomNavigation = () => {
 
           } else if (route.name === 'MyAccount') {
             iconName = focused
-            return <MaterialCommunityIcons name={'account'} size={size} color={color} />;
+            return <AntDesign name={'user'} size={size} color={color} />;
           } else if (route.name === 'MyOrder') {
             iconName = focused
             return <Feather name={'shopping-bag'} size={size} color={color} />;
-          } else if (route.name === 'setting') {
+          } 
+          else if (route.name === 'setting') {
             iconName = focused
             return <AntDesign name={'setting'} size={size} color={color} />;
           }

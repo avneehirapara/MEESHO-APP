@@ -15,31 +15,35 @@ const ProductStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeSreen}
-                  options={{
+                options={{
                     headerShown: false,
                 }} />
             <Stack.Screen name="ProductSreen" component={ProductSreen}
-                       options={{
-                        headerShown: false,
-                    }}/>
+                options={{
+                    headerShown: false,
+                }} />
+            <Stack.Screen name="ProductDetails" component={ProductDetails}
+                options={{
+                    headerShown: false,
+                }} />
         </Stack.Navigator>
     )
 }
 
-const ProductDetialStack = () => {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name="ProductSreen" component={ProductSreen}
-                  options={{
-                    headerShown: false,
-                }} />
-            <Stack.Screen name="ProductSreen" component={ProductDetails}
-                       options={{
-                        headerShown: false,
-                    }}/>
-        </Stack.Navigator>
-    )
-}
+// const ProductDetialStack = () => {
+//     return (
+//         <Stack.Navigator>
+//             <Stack.Screen name="Product" component={ProductSreen}
+//                 options={{
+//                     headerShown: false,
+//                 }} />
+//             <Stack.Screen name="ProductDteils" component={ProductDetails}
+//                 options={{
+//                     headerShown: false,
+//                 }} />
+//         </Stack.Navigator>
+//     )
+// }
 
 const MyAccountStack = () => {
     return (
@@ -72,4 +76,4 @@ const SettingsStack = () => {
     )
 }
 
-export { ProductStack,ProductDetialStack, MyAccountStack ,MyOrderStack,SettingsStack}
+export { ProductStack, MyAccountStack, MyOrderStack, SettingsStack }
