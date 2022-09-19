@@ -1,4 +1,11 @@
 export const colors = {
+
+
+    white:'#ffff',
+    black:"black",
+    // primary: '#FF5035',
+    secondary: '#F3F3F3',
+
     pink: '#F43397',
     softpink: '#F7A8CA',
     lighrpink: '#FFDAD6',

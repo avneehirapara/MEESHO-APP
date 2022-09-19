@@ -7,6 +7,7 @@ import { colors } from '../assets/colors/colors';
 import MyAccount from '../Sreens/MyAccount';
 import MyOrder from '../Sreens/MyOrder';
 import ProductDetails from '../Sreens/ProductDetails';
+import LogInPage from '../Sreens/LogIn';
 
 
 const Stack = createNativeStackNavigator();
@@ -14,6 +15,10 @@ const Stack = createNativeStackNavigator();
 const ProductStack = () => {
     return (
         <Stack.Navigator>
+             {/* <Stack.Screen name="Login" component={LogInPage}
+                options={{
+                    headerShown: false,
+                }} /> */}
             <Stack.Screen name="Home" component={HomeSreen}
                 options={{
                     headerShown: false,

@@ -4,6 +4,7 @@ import ProductSreen from '../Sreens/ProductSreen';
 import Settings from '../Sreens/Settings';
 import {BottomNavigation} from './BottemNavi'
 import Counter from '../Sreens/Counter';
+import Post from '../Sreens/Post';
 
 const Drawer = createDrawerNavigator();
 
@@ -15,6 +16,7 @@ export const DrawerNavgation = () => {
         }} name="Home" component={BottomNavigation} />
             <Drawer.Screen name="Settings" component={Settings} />
             <Drawer.Screen name="Counter" component={Counter} />
+            <Drawer.Screen name="Post" component={Post} />
         </Drawer.Navigator>
     )
 }
