@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { BottomNavigation } from './NavigationRoute/BottemNavi';
 import { DrawerNavgation } from './NavigationRoute/DrowarNavigation';
 import ProductDetails from './Sreens/ProductDetails';
-import { configstoreg } from './Sreens/redux/store';
+import { store } from './Sreens/redux/store';
 import { Provider } from 'react-redux';
 import Login from './Sreens/LogIn';
 import SignUp from './Sreens/LogIn';
@@ -15,14 +15,15 @@ import SearchSreen from './Sreens/SearchSreen';
 import MyAccount from './Sreens/MyAccount';
 import { ScrollView } from 'react-native-gesture-handler';
 import Settings from './Sreens/Settings';
+import CartScreen from './Sreens/CartScreen';
 
 
 export default function App() {
-  const { store, persistor } = configstoreg()
+  // const { store, persistor } = configstoreg()
   return (
    
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
         <NavigationContainer>
           <DrawerNavgation />
         </NavigationContainer>
@@ -33,7 +34,8 @@ export default function App() {
         {/* <SearchSreen /> */}
         {/* <MyAccount/> */}
         {/* <Settings/> */}
-      </PersistGate>
+      {/* </PersistGate> */}
+      {/* <CartScreen /> */}
     </Provider>
     
 

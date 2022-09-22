@@ -1,10 +1,14 @@
 import { combineReducers } from "redux";
+import { commentReducer } from "./CommentReducer";
 import { CounterReducer } from "./counter.reducer";
+import { postReducer } from "./post.reducer";
 
 
 
 export const rootReducer = combineReducers ({
     counter: CounterReducer,
+    post: postReducer,
+    comment:commentReducer
 })
 
 
