@@ -3,18 +3,18 @@ import { getRequest } from "../request"
 
 
 export const Alldata = () => {
-    return  getRequest('comments')
+    return  getRequest('users')
 
 }
 
 export const AddData = (data) => {
-    return  addRequest('comments/',data)
+    return  addRequest('users/',data)
 }
 
 export const DeleteData = (id) => {
-    return  deleteRequest('comments/', id)
+    return  deleteRequest('users/', id)
 }
 
 export const Editdata = (data) => {
-     return EditRequest('comments/',data.id)
+     return EditRequest('users/',data.id)
 }

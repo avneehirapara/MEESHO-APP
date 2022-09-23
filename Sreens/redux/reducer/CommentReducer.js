@@ -5,7 +5,7 @@ let inival = {
 }
 
 export const commentReducer = (state = inival, action) => {
-    console.log("reducer done ",action.type, action.payload);
+    console.log("reducer done 111111111111111111111111111111111111111111111111111",action.type, action.payload);
     switch (action.type) {
 
         case ActionType.GET_COMMENTS:

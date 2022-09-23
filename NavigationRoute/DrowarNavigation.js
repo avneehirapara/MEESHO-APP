@@ -10,6 +10,7 @@ import MyAccount from '../Sreens/MyAccount';
 import MyOrder from '../Sreens/MyOrder';
 import CartScreen from '../Sreens/CartScreen';
 import CommentScreen from '../Sreens/CommentScreen';
+import LogInPage from '../Sreens/LogIn';
 
 const Drawer = createDrawerNavigator();
 
@@ -27,6 +28,7 @@ export const DrawerNavgation = () => {
             <Drawer.Screen name="Post" component={Post} />
             <Drawer.Screen name="SyncronizeAsyncronize" component={SyncronizeAsyncronize} />
             <Drawer.Screen name="CommentScreen" component={CommentScreen} />
+            <Drawer.Screen name="Login" component={LogInPage} />
         </Drawer.Navigator>
     )
 }

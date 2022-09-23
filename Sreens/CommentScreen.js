@@ -1,7 +1,6 @@
-import {  View, Text, Modal, StyleSheet, Pressable ,TextInput } from 'react-native'
+import { View, Text, Modal, StyleSheet, Pressable, TextInput, TouchableOpacity, ScrollView } from 'react-native'
 import Entypo from 'react-native-vector-icons/Entypo';
 import React from 'react'
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { colors } from '../assets/colors/colors';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -33,107 +32,109 @@ export default function CommentScreen() {
     // }) 
 
 
-  
+
 
     const handelAdddata = () => {
         // console.log("add data");
         dispatch(addcomment({ name, email }))
     }
 
-    const handeldelete = ((id) => {
-        // console.log("View file done " , id);
-        dispatch(deletecomment())
-    })
+    const handeldelete = (id) => {
+        console.log("View file done ", id);
+        dispatch(deletecomment(id))
+    }
 
-    const HandelEdit = ((data) => {
+    const HandelEdit = (data) => {
         setUId(data.id)
         setName(data.name)
         setemail(data.email)
         setModalVisible(true)
         setUpdate(true)
-    })
+    }
 
     const handelUpdateData = () => {
-        dispatch(Editcomment({ id: uid, name,email }))
+        dispatch(Editcomment({ id: uid, name, email }))
     }
 
 
     return (
         <ScrollView>
-        <View>
-            {
-                COMMMENT.comment.map((c, i) => (
-                    <View key={i}>
-                        <View style={{ flexDirection: 'row', left:350, top:25}} >
-                            <TouchableOpacity onPress={() => HandelEdit(c)} >
-                                <Entypo name='pencil' style={Styles.pen} />
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => handeldelete(c.id)}>
-                                <MaterialCommunityIcons name='delete' style={Styles.delet} />
-                            </TouchableOpacity>
+            <View>
+                {
+                    COMMMENT.comment.map((c, i) => (
+                        <View key={i}>
+                            <View style={{}} >
+                                {/* <TouchableOpacity
+                                    onPress={handeldelete}
+                                >
+                                    <Text>Press Here</Text>
+                                </TouchableOpacity> */}
+                                <TouchableOpacity onPress={() => handeldelete(c.id)}>
+                                    <MaterialCommunityIcons name='delete' style={Styles.delet} />
+                                </TouchableOpacity>
+                            </View>
+                            <Text> NAME = {c.name}</Text>
+                            <Text> EMAIL = {c.email}</Text>
                         </View>
-                        <Text>{c.name}</Text>
-                        <Text>{c.email}</Text>
-                    </View>
 
-                ))
-            }
-            <View style={Styles.centeredView}>
-                <Modal
-                    animationType="slide"
-                    transparent={true}
-                    visible={modalVisible}
-                    onRequestClose={() => {
-                        Alert.alert("Modal has been closed.");
-                        setModalVisible(!modalVisible);
-                    }}
-                >
-                    <View style={Styles.centeredView}>
-                        <View style={Styles.modalView}>
-                            <TextInput
-                                style={Styles.modalText}
-                                placeholder='NAME'
-                                onChangeText={(text) => setName(text)}
-                                value={name}
-                            />
-                            <TextInput
-                                style={Styles.modalText}
-                                placeholder='EMAIL ID'
-                                onChangeText={(text) => setemail(text)}
-                                value={email}
-                            />
-                            <View style={{ flexDirection: 'row' }}>
+                    ))
+                }
+                <View style={Styles.centeredView}>
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={modalVisible}
+                        onRequestClose={() => {
+                            Alert.alert("Modal has been closed.");
+                            setModalVisible(!modalVisible);
+                        }}
+                    >
+                        <View style={Styles.centeredView}>
+                            <View style={Styles.modalView}>
+                                <TextInput
+                                    style={Styles.modalText}
+                                    placeholder='NAME'
+                                    onChangeText={(text) => setName(text)}
+                                    value={name}
+                                />
+                                <TextInput
+                                    style={Styles.modalText}
+                                    placeholder='EMAIL ID'
+                                    onChangeText={(text) => setemail(text)}
+                                    value={email}
+                                />
+                                <View style={{ flexDirection: 'row' }}>
 
-                                {
-                                    update ?
-                                        <Pressable
-                                            style={[Styles.button, Styles.buttonClose, Styles.btn2]}
-                                            onPress={() => { handelUpdateData(), setModalVisible(!modalVisible) }}>
-                                            <Text style={Styles.textStyle}>UPDATE</Text>
-                                        </Pressable>
-                                        :
-                                        <Pressable
-                                            style={[Styles.button, Styles.buttonClose, Styles.btn2]}
-                                            onPress={() => { handelAdddata(), setModalVisible(!modalVisible) }}>
-                                            <Text style={Styles.textStyle}>add</Text>
-                                        </Pressable>
-                                }
-                                <Pressable
-                                    style={[Styles.button, Styles.buttonClose, Styles.btn2]}
-                                    onPress={() => { setModalVisible(!modalVisible) }} >
-                                    <Text style={Styles.textStyle}>CANCEL</Text>
-                                </Pressable>
+                                    {
+                                        update ?
+                                            <Pressable
+                                                style={[Styles.button, Styles.buttonClose, Styles.btn2]}
+                                                onPress={() => { handelUpdateData(), setModalVisible(!modalVisible) }}>
+                                                <Text style={Styles.textStyle}>UPDATE</Text>
+                                            </Pressable>
+                                            :
+                                            <Pressable
+                                                style={[Styles.button, Styles.buttonClose, Styles.btn2]}
+                                                onPress={() => { handelAdddata(), setModalVisible(!modalVisible) }}>
+                                                <Text style={Styles.textStyle}>add</Text>
+                                            </Pressable>
+                                    }
+                                    <Pressable
+                                        style={[Styles.button, Styles.buttonClose, Styles.btn2]}
+                                        onPress={() => { setModalVisible(!modalVisible) }} >
+                                        <Text style={Styles.textStyle}>CANCEL</Text>
+                                    </Pressable>
+                                </View>
                             </View>
                         </View>
-                    </View>
-                </Modal>
-                <Pressable
-                    style={[Styles.button, Styles.buttonOpen]}
-                    onPress={() => { setModalVisible(true); setUpdate(false) }}>
-                    <Text style={Styles.textStyle}>ADD PRODUCT</Text>
-                </Pressable>
+                    </Modal>
+                    <Pressable
+                        style={[Styles.button, Styles.buttonOpen]}
+                        onPress={() => { setModalVisible(true); setUpdate(false) }}>
+                        <Text style={Styles.textStyle}>ADD PRODUCT</Text>
+                    </Pressable>
+                </View>
             </View>
-        </View>
         </ScrollView>
     )
 }

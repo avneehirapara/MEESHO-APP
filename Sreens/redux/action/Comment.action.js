@@ -26,7 +26,7 @@ export const deletecomment = (id) => (dispatch) => {
     console.log("ation  delete file done" ,id );
 
     DeleteData(id)
-        .then((id) => dispatch({type: ActionType.DELETE_COMMENTS, payload:id}))                 
+        .then(dispatch({type: ActionType.DELETE_COMMENTS, payload:id}))             
         .catch((error) => console.log(error))
     
 }
