@@ -2,7 +2,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeSreen from '../Sreens/HomeSreen';
 import ProductSreen from '../Sreens/ProductSreen';
-import { MyAccountStack, MyOrderStack, ProductStack, SettingsStack } from './StackNavi';
+import { LogInstack, MyAccountStack, MyOrderStack, ProductStack, SettingsStack } from './StackNavi';
 import Settings from '../Sreens/Settings';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
@@ -17,7 +17,7 @@ export const BottomNavigation = () => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
-          if (route.name === 'Home') {
+          if (route.name === 'Product') {
             iconName = focused
             return <AntDesign name={'home'} size={size} color={color} />;
 
@@ -39,7 +39,7 @@ export const BottomNavigation = () => {
 
       })}
     >
-      <Tab.Screen name="Home" component={ProductStack}
+      <Tab.Screen name="Product" component={ProductStack}
         options={{
           headerShown: false
         }} />
@@ -49,12 +49,13 @@ export const BottomNavigation = () => {
         }} />
       <Tab.Screen name="MyOrder" component={MyOrderStack}
         options={{
-          headerShown: false
+          // headerShown: false
         }} />
-        <Tab.Screen name="setting" component={SettingsStack}
+        {/* <Tab.Screen name="setting" component={SettingsStack}
         options={{
           headerShown: false
-        }} />
+        }} /> */}
+       
 
     </Tab.Navigator>
 

@@ -279,8 +279,9 @@ export default function HomeSreen({ navigation }) {
 
 const Styles = StyleSheet.create({
   container: {
-    marginLeft:16,
-    marginRight:16
+    // marginLeft:16,
+    // marginRight:16
+    margin:16
   },
   menu: {
     position: "absolute",

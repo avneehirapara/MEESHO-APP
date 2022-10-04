@@ -72,14 +72,14 @@ export default function MyAccount() {
           </TouchableOpacity>
         </View>
           {/* /* -----------------------------------MY PAYMENT----------------------------------------- */}
-          <View >
+          {/* <View >
           <TouchableOpacity style={Styles.Box} >
             <TouchableOpacity>
-              {/* <FontAwesome5Brands name='google-pay' style={Styles.Icon} /> */}
+              <FontAwesome5Brands name='google-pay' style={Styles.Icon} />
             </TouchableOpacity>
             <Text style={Styles.IconText}>my payment</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
           {/* /* -----------------------------------SPINS----------------------------------------- */}
           {/* <View >
           <TouchableOpacity style={Styles.Box} >

@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { authUserReducer } from "./AuthReducer";
 import { commentReducer } from "./CommentReducer";
 import { CounterReducer } from "./counter.reducer";
 import { postReducer } from "./post.reducer";
@@ -8,14 +9,9 @@ import { postReducer } from "./post.reducer";
 export const rootReducer = combineReducers ({
     counter: CounterReducer,
     post: postReducer,
-    comment:commentReducer
+    comment:commentReducer,
+    auth:authUserReducer
 })
 
 
-// import {combineReducers} from 'redux'
-// import {CounterReducer} from '../counter.reducer'
-
-// export const rootReducer = combineReducers ({
-//     count:CounterReducer,
-// })
 

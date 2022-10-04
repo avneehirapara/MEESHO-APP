@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     container: {
         // marginLeft:16,
         // marginRight:16
+        margin:16
     },
     backIcon:{
         fontSize:30,

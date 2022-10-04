@@ -7,7 +7,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeSreen from './HomeSreen';
 
-export default function ProductSreen({ navigation }) {
+export default function ProductSreen({navigation}) {
 
     // / ============================================  Flatlist 1 =================================================
 
@@ -51,7 +51,7 @@ export default function ProductSreen({ navigation }) {
         },
         {
             id: 6,
-            image: require('../assets/images/wc5.webp'),
+            image: require('../assets/images/wc3.webp'),
             product: 'Denim Jeans',
             price: '1200',
         },
@@ -126,7 +126,8 @@ export default function ProductSreen({ navigation }) {
 const Styles = StyleSheet.create({
     container: {
         // marginLeft:16,
-        // marginRight:16
+        // marginRight:16,
+        margin:16
     },
     backIcon:{
       fontSize:30,
@@ -138,7 +139,7 @@ const Styles = StyleSheet.create({
         width: 165,
         backgroundColor: '#F3F3F3',
         marginBottom: 15,
-        marginLeft: 15,
+        marginLeft: 7,
         marginRight: 15,
         marginTop: 10,
         justifyContent: 'center',

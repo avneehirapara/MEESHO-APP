@@ -8,6 +8,12 @@ import MyAccount from '../Sreens/MyAccount';
 import MyOrder from '../Sreens/MyOrder';
 import ProductDetails from '../Sreens/ProductDetails';
 import LogInPage from '../Sreens/LogIn';
+import ResetPass from '../Sreens/ResetPass';
+import SingUpScreen from '../Sreens/SingUpScreen';
+import LogOutScreen from '../Sreens/LogOutScreen';
+import OtpPage from '../Sreens/OtpPage';
+import ForgetPass from '../Sreens/ForgetPass';
+import ConformPass from '../Sreens/ConformPass';
 
 
 const Stack = createNativeStackNavigator();
@@ -15,10 +21,6 @@ const Stack = createNativeStackNavigator();
 const ProductStack = () => {
     return (
         <Stack.Navigator>
-             {/* <Stack.Screen name="Login" component={LogInPage}
-                options={{
-                    headerShown: false,
-                }} /> */}
             <Stack.Screen name="Home" component={HomeSreen}
                 options={{
                     headerShown: false,
@@ -65,7 +67,7 @@ const MyOrderStack = () => {
         <Stack.Navigator>
             <Stack.Screen name='MyOrder' component={MyOrder}
                 options={{
-                    headerShown: false,
+                    // headerShown: false,
                 }} />
         </Stack.Navigator>
     )
@@ -77,8 +79,44 @@ const SettingsStack = () => {
                 options={{
                     headerShown: false,
                 }} />
+            {/* <Stack.Screen name='LogOutScreen' component={LogOutScreen}
+                options={{
+                    headerShown: false,
+                }} /> */}
         </Stack.Navigator>
     )
 }
 
-export { ProductStack, MyAccountStack, MyOrderStack, SettingsStack }
+const LogInstack = () => {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name='LogInPage' component={LogInPage}
+                options={{
+                    headerShown: false,
+                }} />
+                 {/* <Stack.Screen name="Home" component={HomeSreen}
+                options={{
+                    headerShown: false,
+                }} /> */}
+              <Stack.Screen name='SingUpScreen' component={SingUpScreen}
+                options={{
+                    headerShown: false,
+                }} />
+            <Stack.Screen name='OtpPage' component={OtpPage}
+                options={{
+                    headerShown: false,
+                }} />
+                   <Stack.Screen name='ForgetPass' component={ForgetPass}
+                options={{
+                    headerShown: false,
+                }} />
+                    <Stack.Screen name='ConformPass' component={ConformPass}
+                options={{
+                    headerShown: false,
+                }} />
+          
+        </Stack.Navigator>
+    )
+}
+
+export { ProductStack, MyAccountStack, MyOrderStack, SettingsStack ,LogInstack}
