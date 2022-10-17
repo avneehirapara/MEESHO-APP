@@ -5,9 +5,68 @@ import Feather from 'react-native-vector-icons/Feather';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { colors } from '../assets/colors/colors';
 import { iconss } from '../assets/icons';
+import { useStripe } from "@stripe/stripe-react-native";
+import { StatusBar } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
+import { View, Text,Alert } from "react-native";
 
 
 export default function CartScreen() {
+    const { initPaymentSheet, presentPaymentSheet } = useStripe();
+    const [loading, setLoading] = useState(false);
+    const [secKey, setSecKey] = useState('')
+
+    const fetchPaymentSheetParams = async () => {
+        const response = await fetch(`http://172.20.10.5:8080/pay`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        const { clientSecret, message } = await response.json();
+
+        console.log(clientSecret, message);
+
+        return {
+            clientSecret
+        };
+    };
+
+    const initializePaymentSheet = async () => {
+        const {
+            clientSecret,
+        } = await fetchPaymentSheetParams();
+
+        setSecKey(clientSecret);
+
+        const { error } = await initPaymentSheet({
+            paymentIntentClientSecret: clientSecret,
+            merchantDisplayName: 'Merchant Name',
+            // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
+            //methods that complete payment after a delay, like SEPA Debit and Sofort.
+            allowsDelayedPaymentMethods: true,
+        });
+        if (!error) {
+            setLoading(true);
+        }
+    };
+
+    const openPaymentSheet = async () => {
+        const { error } = await presentPaymentSheet({
+            clientSecret: secKey
+        });
+
+        if (error) {
+            Alert.alert(`Error code: ${error.code}`, error.message);
+        } else {
+            Alert.alert('Success', 'Your order is confirmed!');
+        }
+    };
+
+    useEffect(() => {
+        initializePaymentSheet();
+    }, []);
+
     return (
         <ScrollView>
             <View style={Styles.container}>
@@ -25,7 +84,10 @@ export default function CartScreen() {
                 </TouchableOpacity>
                 {/* _________________________________ Cart-Button______________________________________ */}
 
-                <TouchableOpacity>
+                <TouchableOpacity variant="primary"
+                    disabled={!loading}
+                    title="Checkout"
+                    onPress={openPaymentSheet}>
                     <View style={Styles.CartnButton}>
 
                         <Text style={Styles.CartText}>Continue Shopping</Text>

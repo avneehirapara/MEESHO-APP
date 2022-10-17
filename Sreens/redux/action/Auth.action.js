@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export const signupUser = (data) => (dispatch) => {
-  console.log(data.email, data.password, data.name);
+  // console.log(data.email, data.password, data.name);
   try {
     auth()
       .createUserWithEmailAndPassword(data.email, data.password, data.name)
@@ -38,7 +38,7 @@ export const LoginUser = (data) => (dispatch) => {
       .signInWithEmailAndPassword(data.email, data.password)
       .then((user) => {
         if (user.user.emailVerified) {
-          console.log("in actionnnnnnnnnnnn",  JSON.stringify(user.user));
+          // console.log("in actionnnnnnnnnnnn",  JSON.stringify(user.user));
           AsyncStorage.setItem("user", "Valid")
           dispatch({ type: ActionTypes.LOGIN_SUCCESS, payload: { user: user.user, authMsg: "Login successfull." } })
         }

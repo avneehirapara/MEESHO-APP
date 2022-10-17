@@ -1,3 +1,5 @@
+import { StripeProvider } from '@stripe/stripe-react-native';
+import CheckoutScreen from './app/container/CheckoutScreen';
 import { View, Text } from 'react-native'
 import React from 'react'
 import HomeSreen from './Sreens/HomeSreen'
@@ -21,23 +23,30 @@ import CartScreen from './Sreens/CartScreen';
 export default function App() {
   // const { store, persistor } = configstoreg()
   return (
-   
+
     <Provider store={store}>
       {/* <PersistGate loading={null} persistor={persistor}> */}
-        <NavigationContainer>
-          <DrawerNavgation />
-        </NavigationContainer>
-        {/* <HomeSreen /> */}
-        {/* <ProductSreen /> */}
-        {/* <ProductDetails /> */}
-        {/* <SignUp /> */}
-        {/* <SearchSreen /> */}
-        {/* <MyAccount/> */}
-        {/* <Settings/> */}
+      <NavigationContainer>
+        <DrawerNavgation />
+      </NavigationContainer>
+      {/* <HomeSreen /> */}
+      {/* <ProductSreen /> */}
+      {/* <ProductDetails /> */}
+      {/* <SignUp /> */}
+      {/* <SearchSreen /> */}
+      {/* <MyAccount/> */}
+      {/* <Settings/> */}
       {/* </PersistGate> */}
       {/* <CartScreen /> */}
+      <StripeProvider
+        publishableKey="pk_test_51LtjW9SD9TwtPHxxKx9oWXdQqvR6tJ6Xn4mYbald9NXaQOze1d85b55sQXaFIyFHaIlJHOmAOFEUDcLO430D86ew003Elk1RX5"
+        urlScheme="your-url-scheme" // required for 3D Secure and bank redirects
+        merchantIdentifier="merchant.com.{{YOUR_APP_NAME}}" // required for Apple Pay
+      >
+        <CheckoutScreen />
+      </StripeProvider>
     </Provider>
-    
+
 
 
   )
