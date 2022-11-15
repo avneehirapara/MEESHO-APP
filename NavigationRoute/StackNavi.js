@@ -37,21 +37,6 @@ const ProductStack = () => {
     )
 }
 
-// const ProductDetialStack = () => {
-//     return (
-//         <Stack.Navigator>
-//             <Stack.Screen name="Product" component={ProductSreen}
-//                 options={{
-//                     headerShown: false,
-//                 }} />
-//             <Stack.Screen name="ProductDteils" component={ProductDetails}
-//                 options={{
-//                     headerShown: false,
-//                 }} />
-//         </Stack.Navigator>
-//     )
-// }
-
 const MyAccountStack = () => {
     return (
         <Stack.Navigator>

@@ -212,8 +212,9 @@ export default function HomeSreen({ navigation }) {
           <TextInput style={{ fontFamily: 'Montserrat-Medium', width: 350 }}
             placeholder='Find your product'
           />
-          {/* ------------------flatlist 1---------------------------------- */}
+         
         </View>
+         {/* ------------------flatlist 1---------------------------------- */}
         <View>
           <FlatList
             horizontal
